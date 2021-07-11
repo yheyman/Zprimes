@@ -99,7 +99,8 @@ public class primesGenerator {
                 nextPrime = getMainSequenceElement(index) / primeA;
 
                 boolean isPrime = true; 
-         
+                
+		//pruning
                 for (int module : moduloSequence)
                 {
                     if (nextPrime % module == 0)
