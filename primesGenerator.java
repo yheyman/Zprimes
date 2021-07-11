@@ -9,7 +9,7 @@ import java.io.FileOutputStream;
 /**
  * @author Yuri Heymann 10/07/2021
  * Prime number generator
- * based on the main sequence of odd numbers
+ * based on the main sequence of odds
  */
 public class primesGenerator {
 	
@@ -18,7 +18,7 @@ public class primesGenerator {
 	
 	String fullpath = "c:\\temp\\Zprimes.txt";
 	
-	/* retrieves some element from main sequence of odd numbers
+	/* retrieves some element from main sequence
 	 * indexed by integer n
 	 */
 	private int getMainSequenceElement(int n)
@@ -27,7 +27,7 @@ public class primesGenerator {
 	}
 	 
 	/* returns the index corresponding to an
-	 * element of the main sequence of odd numbers
+	 * element of the main sequence
 	 */
 	private int getIndexAtElement(int element)
 	{
@@ -44,16 +44,15 @@ public class primesGenerator {
         return val;
     }
 	 
-    /* returns the sequence of the first N primes from 2 to maxVal
-     * piecewise linear extraction by modulo functions
-     * represented as stairs
+    /* returns the sequence of the first N primes 
+     * piecewise linear extraction by modulo function
 	 */
 	private ArrayList<Integer> getFirstNprimes(int N)
 	{
 		// array to hold the sequence of primes
 		ArrayList<Integer> primeSequence = new ArrayList<Integer>();
 		
-		// array to hold the sequence of modulos primes used for pruning
+		// array to hold the sequence of modulo primes for pruning
 		ArrayList<Integer> moduloSequence = new ArrayList<Integer>();
 		
 		// initialise the arrays
@@ -62,11 +61,10 @@ public class primesGenerator {
         moduloSequence.add(3);
         moduloSequence.add(5);
         
-        /* extract primes from the first stair of the sequence
+        /* extract primes from first partition
         * anchor points: prime 5, prime 7
-        * stair starts at 5 and ends at 7*7 = 49
-        * first two primes corresponding to 5 and 7.
-        * pruning of 5*5 and 5*7
+        * starts at 5 ends at 7*7 = 49
+        * first two primes corresponding to 5 and 7
         */
         
         // anchor points
@@ -74,17 +72,17 @@ public class primesGenerator {
         int primeB = 7;
         
         int startIndex = getSigma(primeA*primeA);        
-        int endpoint; // last index of the stair
+        int endpoint; // last index of the partition
         int index = startIndex;
 
-        int dummyIndexForStairs = 1;
+        int indexForPartitions = 1;
         int lastElement = 1; 
 
         while (primeSequence.size() <= N)
         {
-            if (dummyIndexForStairs > 1)
+            if (indexForPartitions > 1)
             {
-            	//index from last element of prior stair
+            	//index from last element of prior partition
                 index = getIndexAtElement(lastElement*primeA); 
             }
 
@@ -94,7 +92,7 @@ public class primesGenerator {
             {                    
                 int nextPrime;
 
-                index += primeA; // jump by period prime A                   
+                index += primeA; // periodicity            
 
                 nextPrime = getMainSequenceElement(index) / primeA;
 
@@ -123,7 +121,7 @@ public class primesGenerator {
             int position = primeSequence.indexOf(primeB);
             primeB = primeSequence.get(position + 1);
             
-            dummyIndexForStairs++;
+            indexForPartitions++;
 
             lastElement = primeSequence.get(primeSequence.size() - 1);
         }
