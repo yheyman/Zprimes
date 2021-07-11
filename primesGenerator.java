@@ -9,7 +9,7 @@ import java.io.FileOutputStream;
 /**
  * @author Yuri Heymann 10/07/2021
  * Prime number generator
- * based on the main sequence of odds
+ * based on the main sequence (odd numbers)
  */
 public class primesGenerator {
 	
