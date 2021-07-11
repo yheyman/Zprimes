@@ -47,7 +47,7 @@ public class primesGenerator {
     /* returns the sequence of the first N primes from 2 to maxVal
      * piecewise linear extraction by modulo functions
      * represented as stairs
-	 */
+     */
 	private ArrayList<Integer> getFirstNprimes(int N)
 	{
 		// array to hold the sequence of primes
@@ -129,9 +129,9 @@ public class primesGenerator {
         }
 
         return primeSequence;         
-	}
+    }
 	
-	//print to file list of first N primes
+    //print to file list of first N primes
     public void printPrimeSequence(int N)
     {
         ArrayList<Integer> list = getFirstNprimes(N);
