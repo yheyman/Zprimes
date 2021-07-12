@@ -33,19 +33,9 @@ public class primesGenerator {
 	{
 		return (element - 3)/2;
 	}
-	
-	/*
-	 * returns the largest element of the sequence 
-	 * which is smaller or equal to a real number x
-	 */
-    public int getSigma(double x)
-    {
-        int val = (int)((x - 3.0) / 2.0);
-        return val;
-    }
-	 
-    /* returns the sequence of the first N primes 
-     * piecewise linear extraction by modulo function
+		 
+       /* returns the sequence of the first N primes 
+        * piecewise linear extraction by modulo function
 	 */
 	private ArrayList<Integer> getFirstNprimes(int N)
 	{
