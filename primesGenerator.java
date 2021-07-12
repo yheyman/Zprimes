@@ -71,7 +71,7 @@ public class primesGenerator {
         int primeA = 5;
         int primeB = 7;
         
-        int startIndex = getSigma(primeA*primeA);        
+        int startIndex = getIndexAtElement(primeA * primeA);        
         int endpoint; // last index of the partition
         int index = startIndex;
 
@@ -83,10 +83,10 @@ public class primesGenerator {
             if (indexForPartitions > 1)
             {
             	//index from last element of prior partition
-                index = getIndexAtElement(lastElement*primeA); 
+                index = getIndexAtElement(lastElement * primeA); 
             }
 
-            endpoint = getSigma(primeA * primeB * primeB);
+            endpoint = getIndexAtElement(primeA * primeB * primeB);
 
             while (index < endpoint - primeA)
             {                    
